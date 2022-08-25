@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         txtValorEntrada = findViewById(R.id.txt_ValorEntrada);
         seekBar = findViewById(R.id.seekBar);
         txtGorjeta = findViewById(R.id.etxt_Gorjeta);
@@ -36,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 String StringEntrada = txtValorEntrada.getText().toString();
 
                 if (StringEntrada == null || StringEntrada.equals("")) {
+                    txtValorEntrada.setText("0");
                     Toast.makeText(getApplicationContext(),
                             "Digitar um valor ",
                             Toast.LENGTH_SHORT
                     ).show();
                 } else {
-                    if (StringEntrada.equals("")) {
-                        txtValorEntrada.setText("0");
-                    }
+                    txtValorEntrada.setText("0");
+
                     double valorEntrada = Double.parseDouble(StringEntrada);
                     double ValorGorjeta = (valorEntrada * i) / 100;
                     double ValorFinal = (valorEntrada + ValorGorjeta);
